@@ -24,12 +24,12 @@ from __future__ import annotations
 from collections.abc import Mapping
 from urllib.parse import urlsplit
 
-# Partner id for rebate attribution.  Empty on purpose: no partner row has been
-# registered for LangGraph, and a malformed or invented id is worse than none -
+# Partner id for rebate attribution, registered for LangGraph.  A malformed or
+# invented id is worse than none -
 # the API never rejects the request over it, so a wrong value fails silently and
 # earns nothing.  When an id is registered it must match
 # ``^part_[A-Za-z0-9]{1,64}$`` (alphanumerics only, no dashes or underscores).
-AIMLAPI_PARTNER_ID = ""
+AIMLAPI_PARTNER_ID = "part_Nw323K1Ij8QtPrTvXWm5cs6G"
 
 # The origin these headers are allowed to reach.
 AIMLAPI_ORIGIN = "api.aimlapi.com"
