@@ -138,11 +138,12 @@ ChatAimlapi(model="openai/gpt-4o-mini",
             default_headers=aimlapi_default_headers({"X-App": "my-graph"}))
 ```
 
-`AIMLAPI_PARTNER_ID` in that module is **empty on purpose**: no partner id has
-been registered for LangGraph, and an invented one is never rejected by the API -
-it just earns nothing, silently. While it is empty the helper leaves the id that
-`langchain-aimlapi` already carries in place and only overrides
-`HTTP-Referer`/`X-Title`/`X-AIMLAPI-Source`, so nothing is lost.
+`AIMLAPI_PARTNER_ID` in that module now holds the partner id registered for
+LangGraph. Note what this changes: the helper overrides the id that
+`langchain-aimlapi` carries by default, so requests made through this example
+are attributed to LangGraph rather than to LangChain. Clear the constant to go
+back to the previous behaviour - the helper then leaves langchain's id in place
+and overrides only `HTTP-Referer`/`X-Title`/`X-AIMLAPI-Source`.
 
 ## Other things worth knowing
 
